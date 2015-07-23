@@ -54,7 +54,15 @@ describe('Thermostat', function(){
       for (i = 0; i < 5; i++) {
         thermostat.up();
       };
-      expect(function() {thermostat.up() }).toThrow(new Error('Max 25 degrees whilst power save is on'));
+      expect(function() {thermostat.up() }).toThrow(new Error('It is too hot!'));
+    });
+
+    it('Temp can not exceed 32 degrees when power save is off', function(){
+      thermostat.powerSaveOff();
+      for (i = 0; i < 12; i++) {
+        thermostat.up();
+      };
+      expect(function() {thermostat.up() }).toThrow(new Error('It is too hot!'))
     });
 
   });
