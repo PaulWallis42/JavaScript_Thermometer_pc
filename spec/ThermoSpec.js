@@ -27,7 +27,6 @@ describe('Thermostat', function(){
         thermostat.down()
       };
       expect(function() {thermostat.down() }).toThrow(new Error('Thermostat cannot go below 10 degrees'));
-      expect(thermostat.temperature()).toBe(10);
     });
 
     it('can reset temp to 20 degrees at the press of a button', function(){
@@ -49,6 +48,13 @@ describe('Thermostat', function(){
       thermostat.powerSaveOff();
       thermostat.powerSaveOn();
       expect(powerSave).toBe(true);
+    });
+
+    it('Temp can not exceed 25 degrees with power save on', function(){
+      for (i = 0; i < 5; i++) {
+        thermostat.up();
+      };
+      expect(function() {thermostat.up() }).toThrow(new Error('Max 25 degrees whilst power save is on'));
     });
 
   });

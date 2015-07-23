@@ -10,6 +10,9 @@ Thermostat.prototype.temperature = function () {
 };
 
 Thermostat.prototype.up = function () {
+  if (powerSave === true && temp === 25) {
+    throw new Error('Max 25 degrees whilst power save is on')
+  };
   temp ++;
 };
 
