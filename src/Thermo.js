@@ -27,3 +27,7 @@ Thermostat.prototype.resetTemp = function () {
 Thermostat.prototype.powerSaveOff = function () {
   powerSave = false;
 };
+
+Thermostat.prototype.powerSaveOn = function () {
+  powerSave = true;
+};

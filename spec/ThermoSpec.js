@@ -6,9 +6,9 @@ describe('Thermostat', function(){
     thermostat = new Thermostat();
   });
 
-  describe('can have its temperature controlled', function(){
+  describe('can', function(){
 
-    it('starts at 20 degrees', function(){
+    it('start at 20 degrees', function(){
       expect(thermostat.temperature()).toBe(20);
     });
 
@@ -43,6 +43,12 @@ describe('Thermostat', function(){
     it('Power saving mode can be turned off', function(){
       thermostat.powerSaveOff();
       expect(powerSave).toBe(false);
+    });
+
+    it('Power saving can be turend on', function(){
+      thermostat.powerSaveOff();
+      thermostat.powerSaveOn();
+      expect(powerSave).toBe(true);
     });
 
   });
